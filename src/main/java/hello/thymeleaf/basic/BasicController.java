@@ -73,6 +73,20 @@ public class BasicController {
     return "basic/attribute";
   }
 
+  @GetMapping("/each")
+  public String each(Model model) {
+    addUsers(model);
+    return "basic/each";
+  }
+
+  private void addUsers(Model model) {
+    List<User> list = new ArrayList<>();
+    list.add(new User("kim", 30));
+    list.add(new User("Soo", 20));
+    list.add(new User("Baek", 40));
+    model.addAttribute("users", list);
+  }
+
   @Data
   static class User {
     private String username;
