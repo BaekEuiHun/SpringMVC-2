@@ -31,15 +31,19 @@ public class BasicController {
   public String variable(Model model) {
     User userA = new User("kim", 20);
     User userB = new User("Soo", 30);
+
     List<User> list = new ArrayList<>();
     list.add(userA);
     list.add(userB);
+
     Map<String, User> map = new HashMap<>();
     map.put("userA", userA);
     map.put("userB", userB);
-    model.addAttribute("user", userA);
+
+    model.addAttribute("user", userB);
     model.addAttribute("users", list);
     model.addAttribute("userMap", map);
+
     return "basic/variable";
   }
 
