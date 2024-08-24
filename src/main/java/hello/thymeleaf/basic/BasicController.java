@@ -64,7 +64,7 @@ public class BasicController {
   @GetMapping("/operation")
   public String operation(Model model) {
     model.addAttribute("nullData", null);
-    model.addAttribute("data", "Spring!");
+    model.addAttribute("data", "Spring!!");
     return "basic/operation";
   }
 
