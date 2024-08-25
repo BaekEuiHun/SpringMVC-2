@@ -82,7 +82,7 @@ public class BasicController {
   private void addUsers(Model model) {
     List<User> list = new ArrayList<>();
     list.add(new User("kim", 30));
-    list.add(new User("Soo", 20));
+    list.add(new User("Soo", 50));
     list.add(new User("Baek", 40));
     model.addAttribute("users", list);
   }
