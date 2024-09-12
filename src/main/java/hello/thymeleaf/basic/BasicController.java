@@ -1,6 +1,5 @@
 package hello.thymeleaf.basic;
 
-
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -9,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,21 +23,23 @@ public class BasicController {
     model.addAttribute("data", "Hello Spring");
     return "basic/text-basic";
   }
+
   @GetMapping("/text-unescaped")
   public String textUnescaped(Model model) {
     model.addAttribute("data", "Hello <b>Spring</b>");
     return "basic/text-unescaped";
   }
+
   @GetMapping("/variable")
   public String variable(Model model) {
-    User userA = new User("userA",20);
-    User userB = new User("userB",40);
+    User userA = new User("userA", 20);
+    User userB = new User("userB", 40);
 
     List<User> list = new ArrayList<>();
     list.add(userA);
     list.add(userB);
 
-    Map<String,User> map = new HashMap<>();
+    Map<String, User> map = new HashMap<>();
     map.put("userA", userA);
     map.put("userB", userB);
 
@@ -46,6 +48,7 @@ public class BasicController {
     model.addAttribute("userMap", map);
     return "basic/variable";
   }
+
   @GetMapping("/basic-objects")
   public String basicObjects(HttpSession session) {
     session.setAttribute("sessionData", "Hello Session");
@@ -58,6 +61,13 @@ public class BasicController {
       return "Hello " + data;
     }
   }
+
+  @GetMapping("/date")
+  public String date(Model model) {
+    model.addAttribute("localDateTime", LocalDateTime.now());
+    return "basic/date";
+  }
+
   @Data
   static class User {
     private String username;
