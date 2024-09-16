@@ -89,6 +89,7 @@ public class BasicController {
       return "Hello " + data;
     }
   }
+
   @GetMapping("/comments")
   public String comments(Model model) {
     model.addAttribute("data", "Hello Spring");
