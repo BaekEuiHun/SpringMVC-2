@@ -29,6 +29,13 @@ public class BasicController {
     model.addAttribute("data", "Hello <b>Spring</b>");
     return "basic/text-unescaped";
   }
+  @GetMapping("/javascript")
+  public String javascript(Model model) {
+    model.addAttribute("user", new User("userA", 10));
+    addUsers(model);
+    return "basic/javascript";
+  }
+
 
   @GetMapping("/variable")
   public String variable(Model model) {
